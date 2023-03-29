@@ -38,3 +38,7 @@ jobs:
     - id: deployment
       if: github.ref == 'refs/heads/main'
       uses: actions/deploy-pages@v2
+      permissions:
+        contents: read
+        pages: write
+        id-token: write

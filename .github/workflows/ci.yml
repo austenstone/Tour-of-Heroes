@@ -21,24 +21,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build
     - run: npm test
     - uses: actions/upload-artifact@v3
       with:
         name: dist
         path: dist/${{ github.event.repository.name }}
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
+    - uses: actions/upload-pages-artifact@v1
       with:
-        # Upload entire repository
         path: 'dist/${{ github.event.repository.name }}'
-    - name: Deploy to GitHub Pages
+    - id: deployment
       if: github.ref == 'refs/heads/main'
-      id: deployment
       uses: actions/deploy-pages@v2

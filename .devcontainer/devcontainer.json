@@ -6,7 +6,7 @@
 			"VARIANT": "latest"
 		}
 	},
-    "postCreateCommand": "[ -f /workspaces/.codespaces/shared/first-run-notice.txt ] && (sudo echo 'Welcome to the GitHub Copilot Codespace 🤯' > /workspaces/.codespaces/shared/first-run-notice.txt) || echo 'Welcome back to the GitHub Copilot Devcontainer 🤯'",
+    "postCreateCommand": "[ -f /workspaces/.codespaces/shared/first-run-notice.txt ] && (sudo echo 'Welcome to the GitHub Copilot Codespace 🤯' > /workspaces/.codespaces/shared/first-run-notice.txt) || echo 'Welcome back to the GitHub Copilot Devcontainer 🤯'; npm i",
     "customizations": {
       "vscode": {
         "settings": {

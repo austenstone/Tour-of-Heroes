@@ -31,10 +31,10 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: dist/
+        path: dist/**/*
     - uses: actions/upload-pages-artifact@v1
       with:
-        path: 'dist/*'
+        path: 'dist/.'
     - id: deployment
       if: github.ref == 'refs/heads/main'
       uses: actions/deploy-pages@v2
